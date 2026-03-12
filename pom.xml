@@ -2,10 +2,10 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>x09a01</groupId>
-  <artifactId>09-Programmieren---01-Hello-World-Tests</artifactId>
+  <groupId>b2j</groupId>
+  <artifactId>TestsAssignment</artifactId>
   <version>1.0</version>
-  <name>09 Programmieren - 01 Hello World Tests</name>
+  <name>Tests - Assignment</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <argLine>-Dfile.encoding=UTF-8</argLine>
@@ -49,7 +49,7 @@
   </dependency>
   </dependencies>
   <build>
-    <sourceDirectory>${project.basedir}/../empty_solution/src</sourceDirectory>
+    <sourceDirectory>${project.basedir}/assignment/src</sourceDirectory>
     <testSourceDirectory>${project.basedir}/test</testSourceDirectory>
     <testResources>
       <testResource>

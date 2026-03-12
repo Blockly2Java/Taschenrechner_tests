@@ -1,7 +1,6 @@
 package test;
 
 import wrappers.*;
-import levenshtein.*;
 
 
 import static levenshtein.StructuralLevenshtein.DetailLevel.ONE_PER_CLASS;
@@ -22,20 +21,20 @@ import java.util.List;
 @LevenshteinTest
 public class TestManager {
 
-    static MainWrapper<?> mainClz;
+    static TaschenrechnerWrapper<?> mainClz;
 
-    public static MainWrapper<?> mainClz() {
+    public static TaschenrechnerWrapper<?> mainClz() {
         return mainClz;
     }
 
     @BeforeAll
     static void beforeAll() {
-        mainClz = new MainWrapper<>();
+        mainClz = new TaschenrechnerWrapper<>();
     }
 
     void testCompilationAndSetup() {
         assertThat(mainClz).isNotNull();
-        assertThat(mainClz).isInstanceOf(MainWrapper.class);
+        assertThat(mainClz).isInstanceOf(TaschenrechnerWrapper.class);
 
     }
     
@@ -49,16 +48,51 @@ public class TestManager {
     }
 
     @Test
-    void testMain() {
+    void testAddieren() {
         try {
-            Tests.testMain();
+            Tests.testAddieren();
         }
         catch (AssertionError e) {
             fail(e.getMessage());
         }
     }
-
-
-
+/*
+    @Test
+    void test() {
+        try {
+            Tests.test();
+        }
+        catch (AssertionError e) {
+            fail(e.getMessage());
+        }
+    }
+    @Test
+    void test() {
+        try {
+            Tests.test();
+        }
+        catch (AssertionError e) {
+            fail(e.getMessage());
+        }
+    }
+    @Test
+    void test() {
+        try {
+            Tests.test();
+        }
+        catch (AssertionError e) {
+            fail(e.getMessage());
+        }
+    }
+    @Test
+    void test() {
+        try {
+            Tests.test();
+        }
+        catch (AssertionError e) {
+            fail(e.getMessage());
+        }
+    }
+*/
 }    
 

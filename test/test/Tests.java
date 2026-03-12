@@ -2,35 +2,60 @@ package test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.Arrays;
 
-import wrappers.MainWrapper;
+import wrappers.TaschenrechnerWrapper;
 
+import static levenshtein.Utils.saveCast;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class Tests {
     private static String[] outLines;
     private static PrintStream originalOut;
     private static ByteArrayOutputStream outContent;
-    private static MainWrapper<?> h;
+    private static TaschenrechnerWrapper<?> h;
+
+    private static double[][] values = {
+        { 0, 1 },
+        { 1, 1 },
+        { 2, 3 },
+        { 3, 2 },
+        { 5, 7 },
+        { 7, 5 },
+        { 10, 15 },
+        { 15, 10 },
+        { 100, 200 },
+        { 200, 100 },
+        { 1000, 2000 }
+    };
 
     static void setup() {
-        originalOut = System.out;
-        outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-
-        h = new MainWrapper<>();
+        h = new TaschenrechnerWrapper<>();
     }
 
-    public static void testMain() {
+    private static String messageBuilder(double z1, double z2, double expected, double actual, String method) {
+        return """ 
+            Fehler in Methode %s:
+            z1: %f
+            z2: %f
+            Erwarteter Rückgabewert: %f
+            Dein Rückgabewert: %f
+        """.formatted(method, z1, z2, expected, actual);
+    }
+
+    public static void testAddieren() {
         setup();
 
-        h.main().invoke();
+        for(int i = 0; i < 4; i++) {
+            for (double[] value : values) {
+                double z1 = i < 2 ? value[0] : -value[0];
+                double z2 = i > 1 ? value[1] : -value[1];
 
-        outLines = Arrays.stream(outContent.toString().split(System.lineSeparator())).filter(x -> !x.equals("")).toArray(String[]::new);
-        if (outLines.length != 0) {
-            String printed = String.join(System.lineSeparator(), outLines);
-            fail("Die Methode main() gibt eine falsche Anzahl an Zeilen aus. Sie darf nichts ausgeben!" + System.lineSeparator() + printed);
+                double expected = z1 + z2;
+                double actual = (double) saveCast(h.addieren().invoke(z1, z2), double.class);
+                if (Double.compare(expected, actual) != 0) {
+                    fail(messageBuilder(z1, z2, expected, actual, "addieren"));
+                }
+            }
         }
     }
 }
