@@ -10,7 +10,7 @@
   <repository>
     <id>github</id>
     <name>GitHub Packages</name>
-    <url>https://${env.GITHUB_PACKAGES_USERNAME}:${env.GITHUB_PACKAGES_TOKEN}@maven.pkg.github.com/ValentinHerrmann/Artemis-Testing-Patterns</url>
+    <url>https://maven.pkg.github.com/ValentinHerrmann/Artemis-Testing-Patterns</url>
   </repository>
   </repositories>
   <properties>
@@ -57,7 +57,7 @@
   <dependency>
     <groupId>de.tum.cit.aet</groupId>
     <artifactId>levenshtein-name-deviation-pattern</artifactId>
-    <version>[1.0.0,)</version>
+    <version>1.0.0.15</version>
   </dependency>
   </dependencies>
   <build>
