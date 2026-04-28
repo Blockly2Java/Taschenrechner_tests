@@ -15,7 +15,8 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+          server-id: github
+          server-username: ${{ github.actor }}
+          server-password: ${{ secrets.GH_TOKEN }}
       - name: Publish package
         run: mvn -e --batch-mode deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
