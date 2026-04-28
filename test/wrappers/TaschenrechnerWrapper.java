@@ -11,7 +11,7 @@ public class TaschenrechnerWrapper<T> extends ClassWrapper<T>
     private final MethodWrapper<T, ?> multiplizieren;
     private final MethodWrapper<T, ?> dividieren;
     private final MethodWrapper<T, ?> mittelwert;
-    private final MethodWrapper<T, ?> potenzieren;
+    //private final MethodWrapper<T, ?> potenzieren;
 
 
     public TaschenrechnerWrapper()
@@ -67,6 +67,7 @@ public class TaschenrechnerWrapper<T> extends ClassWrapper<T>
                 "static"
         );
 
+        /*
         potenzieren = new MethodWrapper<>(
                 this,
                 "potenzieren",
@@ -75,6 +76,7 @@ public class TaschenrechnerWrapper<T> extends ClassWrapper<T>
                 "public",
                 "static"
         );
+        */
     }
     @Override
     public Object getObj(boolean forceNew, boolean useByteBuddy) {
@@ -101,6 +103,6 @@ public class TaschenrechnerWrapper<T> extends ClassWrapper<T>
     }
 
     public MethodWrapper<T, ?> potenzieren() {
-        return potenzieren;
+        return null;//potenzieren;
     }
 }
