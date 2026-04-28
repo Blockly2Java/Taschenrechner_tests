@@ -1,20 +1,18 @@
 package test;
 
-import wrappers.*;
+import java.util.List;
 
-
-import static levenshtein.StructuralLevenshtein.DetailLevel.ONE_PER_CLASS;
-import static levenshtein.StructuralLevenshtein.structuralTestFactory;
-import static org.assertj.core.api.Assertions.*;
-
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
 
-import levenshtein.LevenshteinTest;
-
-import java.util.List;
+import de.tum.cit.aet.levenshtein.LevenshteinTest;
+import static de.tum.cit.aet.levenshtein.StructuralLevenshtein.DetailLevel.ONE_PER_CLASS;
+import static de.tum.cit.aet.levenshtein.StructuralLevenshtein.structuralTestFactory;
+import wrappers.MainWrapper;
 
 
 

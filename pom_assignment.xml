@@ -3,9 +3,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>b2j</groupId>
-  <artifactId>TestsSolution</artifactId>
+  <artifactId>TestsAssignment</artifactId>
   <version>1.0</version>
-  <name>Tests - Solution</name>
+  <name>Tests - Assignment</name>
   <repositories>
   <repository>
     <id>github</id>
@@ -53,6 +53,11 @@
     <artifactId>artemis-java-test-sandbox</artifactId>
     <version>1.15.0</version>
     <scope>test</scope>
+    </dependency>
+    <dependency>
+    <groupId>de.tum.cit.aet</groupId>
+    <artifactId>levenshtein-name-deviation-pattern</artifactId>
+    <version>1.0.0.14</version>
   </dependency>
   <dependency>
     <groupId>de.tum.cit.aet</groupId>
@@ -61,7 +66,7 @@
   </dependency>
   </dependencies>
   <build>
-    <sourceDirectory>${project.basedir}/../solution/src</sourceDirectory>
+    <sourceDirectory>${project.basedir}/assignment/src</sourceDirectory>
     <testSourceDirectory>${project.basedir}/test</testSourceDirectory>
     <testResources>
       <testResource>
